@@ -36,10 +36,12 @@ export class LoginPage {
     this.http.post(link, data)
       .subscribe( data => {
         this.data.response = data._body;
+     
         var res = this.data.response.split("|");
         if(res[1] == "sucesso"){
-         // this.usuarioLogado.email = this.usuario.email;
-          //this.usuarioLogado.status="Autenticado";
+       sessionStorage.setItem("usuarioId", res[0]);
+       sessionStorage.setItem("usuarioLogado", this.usuario.email);
+       sessionStorage.setItem("flagLogado", "sim");
           this.navCtrl.push(MinhaContaPage)
         }else 
          if(this.data.response == "invalido"){

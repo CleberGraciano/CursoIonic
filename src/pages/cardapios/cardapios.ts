@@ -3,6 +3,7 @@ import { NavController, NavParams, LoadingController, AlertController } from 'io
 import { Http } from '@angular/http';
 import { Restaurante } from '../../domain/restaurante/restaurante';
 import { Cardapio } from '../../domain/cardapio/cardapio';
+import { FazerpedidoPage } from '../fazerpedido/fazerpedido';
 
 
 @Component({
@@ -58,6 +59,8 @@ import { Cardapio } from '../../domain/cardapio/cardapio';
     }
 
       submit(cardapio){
+        console.log(cardapio.nome);
+        this.navCtrl.push(FazerpedidoPage, {cardapioSelecionado: cardapio});
 
       }
       

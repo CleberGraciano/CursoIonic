@@ -13,12 +13,14 @@ import { SobrePage } from '../pages/sobre/sobre'
 
 
 
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { HttpModule } from '@angular/http'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { FazerpedidoPage } from '../pages/fazerpedido/fazerpedido';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     CadastroPage,
     CardapiosPage,
-    SobrePage
+    SobrePage,
+    FazerpedidoPage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     CadastroPage,
     CardapiosPage,
-    SobrePage
+    SobrePage,
+    FazerpedidoPage
   ],
   providers: [
     StatusBar,

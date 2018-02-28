@@ -4,5 +4,5 @@ export class Usuario {
         public nome: string,
         public email: string,
         public password: string,
-        public estatus: string){}
+        public status: string){}
 }

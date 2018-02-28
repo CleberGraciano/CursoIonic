@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
 import { Restaurante } from '../../domain/restaurante/restaurante';
 import { Http } from '@angular/http';
+import { CardapiosPage} from '../cardapios/cardapios';
 
 
 @Component({
@@ -48,6 +49,7 @@ export class RestaurantesPage {
 
     seleciona(restaurante){
       console.log('Entrou na Action selecionada ');
+      this.navCtrl.push(CardapiosPage, { restauranteSelecionado: restaurante });
     }
   
 }

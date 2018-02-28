@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, NavParams, NavController } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { RestaurantesPage } from '../pages/restaurantes/restaurantes';
 import { PedidosPage } from '../pages/pedidos/pedidos';
@@ -8,6 +8,9 @@ import { MinhaContaPage } from '../pages/minha-conta/minha-conta';
 import { RedesSociaisPage } from '../pages/redes-sociais/redes-sociais';
 import { LoginPage } from '../pages/login/login';
 import { CadastroPage } from '../pages/cadastro/cadastro';
+import { CardapiosPage } from '../pages/cardapios/cardapios'
+import { SobrePage } from '../pages/sobre/sobre'
+
 
 
 import 'rxjs/add/operator/map';
@@ -25,7 +28,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MinhaContaPage,
     RedesSociaisPage,
     LoginPage,
-    CadastroPage
+    CadastroPage,
+    CardapiosPage,
+    SobrePage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MinhaContaPage,
     RedesSociaisPage,
     LoginPage,
-    CadastroPage
+    CadastroPage,
+    CardapiosPage,
+    SobrePage
   ],
   providers: [
     StatusBar,

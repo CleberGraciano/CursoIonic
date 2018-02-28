@@ -8,7 +8,9 @@ import { MinhaContaPage } from '../pages/minha-conta/minha-conta';
 import { RedesSociaisPage } from '../pages/redes-sociais/redes-sociais';
 
 
+
 import { RestaurantesPage } from '../pages/restaurantes/restaurantes';
+import { SobrePage } from '../pages/sobre/sobre';
 
 
 
@@ -39,5 +41,9 @@ export class MyApp {
   }goToRedesSociais(params){
     if (!params) params = {};
     this.navCtrl.setRoot(RedesSociaisPage);
+  }
+  goToSobre(params){
+    if (!params) params = {};
+    this.navCtrl.setRoot(SobrePage);
   }
 }

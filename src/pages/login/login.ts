@@ -25,7 +25,7 @@ export class LoginPage {
       this.data = {};
         this.data.response = '';
         this.http = http;
-        this.usuario = new Usuario (null, null, null, null);
+        this.usuario = new Usuario (null, null, null, null,null);
   }
 
   submit(){

@@ -36,8 +36,8 @@ export class LoginPage {
     this.http.post(link, data)
       .subscribe( data => {
         this.data.response = data._body;
-     
         var res = this.data.response.split("|");
+        console.log(this.data.response);
 
         //Trbalhando com sessões
         if(res[1] == "sucesso"){

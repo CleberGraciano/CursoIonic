@@ -5,7 +5,7 @@ export class Pedido {
     constructor(
         public id: string,
         public cardapio: Cardapio,
-        public usuario: Usuario,
+        public usuario: String,
         public valor: number,
         public taxa_entrega: number,
         public nome: string,

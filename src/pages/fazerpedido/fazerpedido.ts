@@ -4,7 +4,7 @@ import { Http, Jsonp } from '@angular/http';
 import { LoginPage } from '../login/login';
 import { Cardapio } from '../../domain/cardapio/cardapio'
 import { Pedido } from '../../domain/pedido/pedido'
-import { Usuario } from '../../domain/usuario/usuario';
+//import { Usuario } from '../../domain/usuario/usuario';
 import { PedidosPage } from '../pedidos/pedidos';
 
 
@@ -48,7 +48,7 @@ export class FazerpedidoPage {
   ngOnInit(){
     console.log(sessionStorage.getItem('usuarioId'));
     console.log(sessionStorage.getItem('usuarioLogado'));
-    this.pedido.usuario = new Usuario(sessionStorage.getItem('usuarioId'),"Cleber Graciano",sessionStorage.getItem('usuarioLogado'),null,null);
+   // this.pedido.usuario = new Usuario(sessionStorage.getItem('usuarioId'),"Cleber Graciano",sessionStorage.getItem('usuarioLogado'),null,null);
     if(sessionStorage.getItem('flagLogado')!="sim"){
       this.goToLogin();
     }
@@ -66,11 +66,11 @@ export class FazerpedidoPage {
   submit(){
     var data = JSON.stringify({
     cardapioId: this.pedido.cardapio.id,
-    usuarioId: this.pedido.usuario.id,
+    usuarioId: sessionStorage.getItem('usuarioId'),
     valor: this.pedido.cardapio.preco,
     taxaEntrega: "10.00",
-    nome: this.pedido.usuario.nome,
-    email: this.pedido.usuario.email,
+    nome: "Cleber Graciano",
+    email: sessionStorage.getItem('usuarioLogado'),
     observacao: this.pedido.observacao
   });
 //Redirecionar após o pedido com sucesso para a página pedidos

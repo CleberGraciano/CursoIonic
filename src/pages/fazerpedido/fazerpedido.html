@@ -42,11 +42,23 @@
       </ion-card>
 
       <form id="cadastro-form1">
-        <ion-input type="text" [(ngModel)]="pedido.observacao" name="observacao"></ion-input>  
+          
+              <ion-item  id="pedido-input1">
+                  <ion-label>
+                      Observação
+                    </ion-label>
+        <ion-input type="text" [(ngModel)]="pedido.observacao" name="observacao" hint="observação"></ion-input>  
+              </ion-item>
         <ion-item color="assertive" id="home-list-item7">
           <button id="pedido-button3" (click)="submit()" ion-button color="stable" block>
               Confirmar pedido
           </button>
         </ion-item>
+
+        <ion-item color="assertive" id="home-list-item7">
+        <button id="pedido-button4"  ion-button color="stable" block>
+            Realizar outro pedido
+        </button>
+      </ion-item>
       </form>
 </ion-content>

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { Usuario } from '../../domain/usuario/usuario';
-import { MinhaContaPage } from '../minha-conta/minha-conta'
+import { RestaurantesPage } from '../restaurantes/restaurantes';
 
 @Component({
   selector: 'page-login',
@@ -38,11 +38,15 @@ export class LoginPage {
         this.data.response = data._body;
      
         var res = this.data.response.split("|");
+
+        //Trbalhando com sessões
         if(res[1] == "sucesso"){
        sessionStorage.setItem("usuarioId", res[0]);
        sessionStorage.setItem("usuarioLogado", this.usuario.email);
        sessionStorage.setItem("flagLogado", "sim");
-          this.navCtrl.push(MinhaContaPage)
+
+       //comando usado para chamar proxima tela apos logado
+          this.navCtrl.push(RestaurantesPage)
         }else 
          if(this.data.response == "invalido"){
 

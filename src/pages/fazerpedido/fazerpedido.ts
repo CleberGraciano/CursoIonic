@@ -5,6 +5,8 @@ import { LoginPage } from '../login/login';
 import { Cardapio } from '../../domain/cardapio/cardapio'
 import { Pedido } from '../../domain/pedido/pedido'
 import { Usuario } from '../../domain/usuario/usuario';
+import { PedidosPage } from '../pedidos/pedidos';
+
 
 
 /**
@@ -57,6 +59,10 @@ export class FazerpedidoPage {
     this.navCtrl.setRoot(LoginPage);
   }
 
+  goToPedidos(){
+    this.navCtrl.setRoot(PedidosPage);
+}
+
   submit(){
     var data = JSON.stringify({
     cardapioId: this.pedido.cardapio.id,
@@ -67,8 +73,39 @@ export class FazerpedidoPage {
     email: this.pedido.usuario.email,
     observacao: this.pedido.observacao
   });
+//Redirecionar após o pedido com sucesso para a página pedidos
+  this.http.post(this.url, data)
+  .subscribe(data => {
+
+    //Comando responsavél para obeter a resposta do Servidor 
+    this.data.response = data._body;
+
+    //Exibe uma alerta de Sucesso na conexão caso ele encontre o Json carregado
+    this._alertCtrl
+    .create({
+      title: 'Sucesso',
+      buttons: [{ text: 'OK' }],
+      subTitle: this.data.response
+    }).present();
+
+    this.goToPedidos(); // Redireciona para pagina de pedidos 
+
+    // Caso de algo erro na conexão exibe um alert de erro 
+  }, error => {
+    console.log("Oooooops!");
+    this._alertCtrl
+    .create({
+     title: 'Falha na conexão!',
+    buttons: [{ text: 'Estou ciente!' }],
+    subTitle: 'Não foi possivél obter a lista de restaurante. Tente novamente.'}).present();
+  });
 
   console.log(data);
  
   }
+
+  //-------------- Criar a função goToLogin e  goToPedidos
+
+ 
+ 
 }
